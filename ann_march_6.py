@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow import keras
 import pandas as pd
-from data_poisoning import poison
+
 
 
 fashion_mnist = keras.datasets.mnist
@@ -117,3 +117,19 @@ plt.plot(communication_round,accuracy)
 plt.grid(True)
 plt.gca().set_ylim(0,1)        #setting y_limit
 plt.show()
+
+
+
+
+
+
+
+
+
+#poisoning the model
+from data_poisoning import mnist_poison
+fashion_mnist = keras.datasets.mnist
+(X_train_full, y_train), (X_test, y_test) = fashion_mnist.load_data()
+poison=mnist_poison(20,[],y_train)
+poisoned_dataset=poison.poison()
+poison.poison_validity_check(y_train,poisoned_dataset)
