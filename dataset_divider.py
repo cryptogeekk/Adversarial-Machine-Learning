@@ -3,14 +3,7 @@ import pandas as pd
 import numpy as np
 
 def divide(parts, X_train_full,y_train_full):
-    # fashion_mnist = keras.datasets.mnist
-    # (X_train_full, y_train_full), (X_test, y_test) = fashion_mnist.load_data()
-    
-    # # for temproary use
-    # X_train_full=np.arange(1,21)
-    # y_train_full=np.arange(21,41)
-    # parts=5
-    
+
     each_part_number=int(len(X_train_full)/parts)
     list_x_train=[]
     list_y_train=[]
