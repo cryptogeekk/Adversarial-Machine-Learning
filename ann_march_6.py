@@ -127,9 +127,10 @@ plt.show()
 
 
 #poisoning the model
-from data_poisoning import mnist_poison
+import temp
 fashion_mnist = keras.datasets.mnist
-(X_train_full, y_train), (X_test, y_test) = fashion_mnist.load_data()
-poison=mnist_poison(20,[],y_train)
-poisoned_dataset=poison.poison()
-poison.poison_validity_check(y_train,poisoned_dataset)
+(X_train_full, y_train), (X_test, y_test) = fashion_mnist.load_data()      
+original_dataset=y_train.copy()    
+poisoned_dataset=temp.poison(10,[7,8,9],y_train)
+temp.poison_validity_check(original_dataset,poisoned_dataset)
+
