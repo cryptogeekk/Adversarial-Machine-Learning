@@ -134,3 +134,6 @@ original_dataset=y_train.copy()
 poisoned_dataset=temp.poison(10,[7,8,9],y_train)
 temp.poison_validity_check(original_dataset,poisoned_dataset)
 
+#dividing the dataset
+import dataset_divider
+x_data,y_data=dataset_divider.divide(6,np.arange(1,21),np.arange(21,41))
