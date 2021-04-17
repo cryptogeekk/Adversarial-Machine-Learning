@@ -58,3 +58,18 @@ for index in range(len(x_train_data)):
 #clustering the weight
 for i in range(len(output_weight_list)):
     print(output_weight_list[i].mean())
+    
+distribution_count=[]
+for i in range(len(y_train_data)):
+    distribution_count.append(pd.Series(y_train_data[i]).value_counts())
+    
+for i in range(len(distribution_count)):
+    count=0
+    for j in range(len(distribution_count)):
+        count=coun
+        print("The total number of ", distribution_count[j][i].mean())
+    distribution_count[0]
+    print(distribution_count[i])
+    
+distribution_count[0][0]
+
