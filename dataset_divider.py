@@ -2,8 +2,8 @@ from tensorflow import keras
 import pandas as pd
 import numpy as np
 
-def divide(parts, X_train_full,y_train_full):
-
+def divide_without_label(parts, X_train_full,y_train_full):
+      
     each_part_number=int(len(X_train_full)/parts)
     list_x_train=[]
     list_y_train=[]
@@ -22,4 +22,10 @@ def divide(parts, X_train_full,y_train_full):
         
     return list_x_train, list_y_train
 
+
+def divide_with_label(parts, X_train_full, y_train_full):
+    fashion_mnist = keras.datasets.mnist
+    (X_train_full, y_train_full), (X_test, y_test) = fashion_mnist.load_data()
     
+    for index in range(len(y_train_full)):
+        if y_train_full[index]
