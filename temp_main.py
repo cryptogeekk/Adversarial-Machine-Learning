@@ -54,4 +54,7 @@ for index in range(len(x_train_data)):
     print('----Going for round-----', index)
     train_model(x_train_data[index],y_train_data[index])
     
-    
+
+#clustering the weight
+for i in range(len(output_weight_list)):
+    print(output_weight_list[i].mean())
