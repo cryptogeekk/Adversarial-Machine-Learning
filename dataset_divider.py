@@ -26,6 +26,20 @@ def divide_without_label(parts, X_train_full,y_train_full):
 def divide_with_label(parts, X_train_full, y_train_full):
     fashion_mnist = keras.datasets.mnist
     (X_train_full, y_train_full), (X_test, y_test) = fashion_mnist.load_data()
+    parts=10
+    
+    value_counts=pd.Series(y_train_full).value_counts()
+    each_part_number=int(len(value_counts)/parts)
+    labels=pd.Series(y_train_full).unique()
+    
+    x_train_list=[[],[],[],[],[],[],[],[],[],[]]
+    y_train_list=[[],[],[],[],[],[],[],[],[],[]]
     
     for index in range(len(y_train_full)):
-        if y_train_full[index]
+        for index1 in range(len(labels)):
+            if y_train_full[index]==labels[index1]:
+                y_train_list[labels[index1]].append(y_train_full[index])
+                x_train_list[labels[index1]].append(X_train_full[index])
+    
+            
+        
