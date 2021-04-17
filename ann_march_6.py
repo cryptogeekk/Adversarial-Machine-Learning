@@ -34,7 +34,7 @@ model=keras.models.Sequential([
 
 
 model.summary() 
-keras.utils.plot_model(model)
+# keras.utils.plot_model(model)
 
 #getting weight of the model
 weights,biases=model.layers[2].get_weights()
@@ -43,7 +43,7 @@ model_weight=model.get_weights()
 
 #compiling a model
 model.compile(loss='sparse_categorical_crossentropy',optimizer=keras.optimizers.SGD(lr=0.1),metrics=['accuracy'])
-history=model.fit(X_train, y_train,epochs=30,validation_data=(X_valid,y_valid)) 
+history=model.fit(X_train, y_train,epochs=10,validation_data=(X_valid,y_valid)) 
 
 #calculating the mean of weights of final layer
 mean_list=[]
