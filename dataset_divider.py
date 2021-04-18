@@ -41,25 +41,23 @@ def divide_with_label(parts, X_train_full, y_train_full):
                 y_train_list[labels[index1]].append(y_train_full[index])
                 x_train_list[labels[index1]].append(X_train_full[index])
     
-    return x_train_list,y_train_list
+    # return x_train_list,y_train_list
 
         
-def part_with_label(parts, X_train_full,y_train_full):
-        
-    each_part_number=int(len(y_train_full)/parts)
+    each_part_number1=int(len(y_train_list)/parts)
     
-    x_train_list=[[],[],[],[],[],[],[],[],[],[]]
-    y_train_list=[[],[],[],[],[],[],[],[],[],[]]
+    x_train_list1=[[],[],[],[],[],[],[],[],[],[]]
+    y_train_list1=[[],[],[],[],[],[],[],[],[],[]]
     
     count=0
     for index in range(parts):
-        for index1 in range(each_part_number):
-            x_train_list[index].append(X_train_full[count])
-            y_train_list[index].append(y_train_full[count])
+        for index1 in range(each_part_number1):
+            x_train_list1[index].append(x_train_list[count])
+            y_train_list1[index].append(y_train_list[count])
         
             count=count+1
     
-    return x_train_list,y_train_list
+    return x_train_list1,y_train_list1
         
 
     
