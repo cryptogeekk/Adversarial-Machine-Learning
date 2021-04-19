@@ -137,4 +137,24 @@ temp.poison_validity_check(original_dataset,poisoned_dataset)
 #dividing the dataset
 import dataset_divider
 # x_data,y_data=dataset_divider.divide(6,np.arange(1,21),np.arange(21,41))
-x_data,y_data=dataset_divider.divide_with_label(1,X_train_full,y_train)
+x_data,y_data=dataset_divider.divide_with_label(5,X_train_full,y_train)
+
+#making the dataset to be fed up into ANN
+train_data_1=np.concatenate((np.array(x_data[0][0]), np.array(x_data[0][1])), axis=0)
+test_data_1=np.concatenate((np.array(y_data[0][0]), np.array(y_data[0][1])), axis=0)
+
+# count=0
+def get_data(x_data,y_data,count):
+    from sklearn.utils import shuffle
+    if(len(x_data[count]))!=0:
+        train_data_1=np.concatenate((np.array(x_data[count][0]), np.array(x_data[count][1])), axis=0)
+        test_data_1=np.concatenate((np.array(y_data[count][0]), np.array(y_data[count][1])), axis=0)
+        train_data_1, test_data_1=shuffle(train_data_1,test_data_1)
+        # count=count+1
+    
+    return train_data_1, test_data_1
+
+client1_train, client1_test=get_data(x_data,y_data,0)
+        
+    
+    
