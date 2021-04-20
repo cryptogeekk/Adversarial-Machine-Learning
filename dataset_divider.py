@@ -55,18 +55,15 @@ def divide_with_label(parts, X_train_full, y_train_full):
                 y_train_list1[index].append(y_train_list[count])
             
                 count=count+1
-                
-        #temp use variable
-        x_train_list1=x_data
-        y_train_list1=y_data
-                
-        for index in range(len(x_train_list1)):
-            if len(x_train_list1[index])==0:
-                
-                x_train_list1.clear[5]
         
         return x_train_list1,y_train_list1
         
+def get_data(x_data,y_data,count):
+    from sklearn.utils import shuffle
+    if(len(x_data[count]))!=0:
+        train_data_1=np.concatenate((np.array(x_data[count][0]), np.array(x_data[count][1])), axis=0)
+        test_data_1=np.concatenate((np.array(y_data[count][0]), np.array(y_data[count][1])), axis=0)
+        train_data_1, test_data_1=shuffle(train_data_1,test_data_1)
 
-    
+    return train_data_1, test_data_1
     
