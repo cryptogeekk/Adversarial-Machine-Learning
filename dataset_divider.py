@@ -67,7 +67,6 @@ def divide_with_label(parts, X_train_full, y_train_full):
         
         return x_train_list1,y_train_list1
         
-    len(x_train_list1[5])==0
 
     
     
