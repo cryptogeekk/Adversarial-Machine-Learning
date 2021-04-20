@@ -11,6 +11,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow import keras
 import pandas as pd
+import time
+
 
 
 
@@ -26,14 +28,14 @@ class_names[y_train[0]]
 
 model=keras.models.Sequential([
         keras.layers.Flatten(input_shape=[28,28]),
-        # keras.layers.Dense(300,activation='relu'),
-        keras.layers.Dense(100,activation='relu'),
+        keras.layers.Dense(200,activation='relu'),
+        keras.layers.Dense(200,activation='relu'),
         keras.layers.Dense(10,activation='softmax')
     
         ])
 
 
-model.summary() 
+# model.summary() 
 # keras.utils.plot_model(model)
 
 #getting weight of the model
@@ -42,8 +44,12 @@ model.predict(X_train[1])
 model_weight=model.get_weights()
 
 #compiling a model
+start=time.time()
 model.compile(loss='sparse_categorical_crossentropy',optimizer=keras.optimizers.SGD(lr=0.1),metrics=['accuracy'])
-history=model.fit(X_train, y_train,epochs=10,validation_data=(X_valid,y_valid)) 
+history=model.fit(X_train,y_train,epochs=20,validation_data=(X_valid,y_valid)) 
+
+end=time.time()
+print('total_time= ', end-start)
 
 #calculating the mean of weights of final layer
 mean_list=[]
@@ -107,7 +113,7 @@ plt.show()
     
 model.compile(loss='sparse_categorical_crossentropy',optimizer=keras.optimizers.SGD(lr=0.67),metrics=['accuracy'])
 
-history=model.fit(X_train, y_train,epochs=20,validation_data=(X_valid,y_valid))
+history=model.fit(X_train, y_train,epochs=50,validation_data=(X_valid,y_valid))
 weights,biases=model.layers[3].get_weights()
 accuracy=history.history['accuracy']
 accuracy[0]=0

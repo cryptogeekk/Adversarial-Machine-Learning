@@ -20,7 +20,7 @@ y_valid, y_train = y_train_full[:5000], y_train_full[5000:]
 
 # splitting the datatset
 import dataset_divider
-x_train_data,y_train_data=dataset_divider.divide(10,X_train, y_train)
+x_train_data,y_train_data=dataset_divider.divide_without_label(10,X_train, y_train)
 
 
 class_names = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat","Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]

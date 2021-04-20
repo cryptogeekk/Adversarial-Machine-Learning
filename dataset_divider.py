@@ -58,12 +58,20 @@ def divide_with_label(parts, X_train_full, y_train_full):
         
         return x_train_list1,y_train_list1
         
-def get_data(x_data,y_data,count):
+def get_data(x_data,y_data,count,data_type):
     from sklearn.utils import shuffle
-    if(len(x_data[count]))!=0:
-        train_data_1=np.concatenate((np.array(x_data[count][0]), np.array(x_data[count][1])), axis=0)
-        test_data_1=np.concatenate((np.array(y_data[count][0]), np.array(y_data[count][1])), axis=0)
-        train_data_1, test_data_1=shuffle(train_data_1,test_data_1)
-
-    return train_data_1, test_data_1
+    if data_type=='non--iid':
+        print('Non--IID Data')
+        train_data_1=np.array(x_data[count])
+        test_data_1=np.array(y_data[count])
+        return train_data_1,test_data_1
     
+    else:
+        if(len(x_data[count]))!=0:
+            train_data_1=np.concatenate((np.array(x_data[count][0]), np.array(x_data[count][1])), axis=0)
+            test_data_1=np.concatenate((np.array(y_data[count][0]), np.array(y_data[count][1])), axis=0)
+            train_data_1, test_data_1=shuffle(train_data_1,test_data_1)
+    
+        return train_data_1, test_data_1
+    
+
