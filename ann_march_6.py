@@ -39,14 +39,14 @@ model=keras.models.Sequential([
 # keras.utils.plot_model(model)
 
 #getting weight of the model
-weights,biases=model.layers[2].get_weights()
-model.predict(X_train[1])
-model_weight=model.get_weights()
+# weights,biases=model.layers[2].get_weights()
+# model.predict(X_train[1])
+# model_weight=model.get_weights()
 
 #compiling a model
 start=time.time()
 model.compile(loss='sparse_categorical_crossentropy',optimizer=keras.optimizers.SGD(lr=0.1),metrics=['accuracy'])
-history=model.fit(X_train,y_train,epochs=20,validation_data=(X_valid,y_valid)) 
+history=model.fit(X_train_full,y_train_full,epochs=20) 
 
 end=time.time()
 print('total_time= ', end-start)

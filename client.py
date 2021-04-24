@@ -15,9 +15,9 @@ class Client:
         self.learning_rate=learning_rate
         # self.decay_rate=decay_rate
         
+        
     def train(self):
         self.dataset_x=self.dataset_x/255.0
-        self.dataset_y=self.dataset_y/255.0
         
         import numpy as np
         import pandas as pd
@@ -32,7 +32,7 @@ class Client:
             ])
         
         #getting the initial weight of the model
-        initial_weight=model.get_weights()
+        # initial_weight=model.get_weights()
         # output_weight_list=[]
         
         #training the model
@@ -42,7 +42,7 @@ class Client:
         # wait.start()
         
         model.compile(loss='sparse_categorical_crossentropy',optimizer=keras.optimizers.SGD(lr=self.learning_rate),metrics=['accuracy'])
-        history=model.fit(self.dataset_x, self.dataset_y,epochs=self.epoch_number) 
+        history=model.fit(self.dataset_x, self.dataset_y,epochs=self.epoch_number,batch_size=32) 
         
         #getting the final_weight
         output_weight=model.get_weights()
