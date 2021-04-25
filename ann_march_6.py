@@ -46,7 +46,12 @@ model=keras.models.Sequential([
 #compiling a model
 start=time.time()
 model.compile(loss='sparse_categorical_crossentropy',optimizer=keras.optimizers.SGD(lr=0.1),metrics=['accuracy'])
-history=model.fit(X_train_full,y_train_full,epochs=20) 
+history=model.fit(X_train,y_train,epochs=20) 
+
+#evaluating the model
+model.evaluate(X_valid,y_valid)
+temp=model.predict(X_valid)
+
 
 end=time.time()
 print('total_time= ', end-start)

@@ -7,13 +7,14 @@ Created on Tue Apr 20 15:43:56 2021
 """
 class Client:
     
-    def __init__(self, dataset_x, dataset_y, epoch_number, learning_rate):
+    def __init__(self, dataset_x, dataset_y, epoch_number, learning_rate,weights):
         self.dataset_x=dataset_x
         self.dataset_y=dataset_y
         # self.mini_batch=mini_batch
         self.epoch_number=epoch_number
         self.learning_rate=learning_rate
         # self.decay_rate=decay_rate
+        self.weights=weights
         
         
     def train(self):
@@ -31,13 +32,16 @@ class Client:
                 keras.layers.Dense(10,activation='softmax')
             ])
         
+        #setting weight of the model
+        model.set_weights(self.weights)
+        
         #getting the initial weight of the model
         # initial_weight=model.get_weights()
         # output_weight_list=[]
         
         #training the model
         # import animation
-        print('###### Client1 Training started ######')
+        # print('###### Client1 Training started ######')
         # wait=animation.Wait()
         # wait.start()
         
@@ -54,7 +58,7 @@ class Client:
         
         
         
-        
+
         
 
 
