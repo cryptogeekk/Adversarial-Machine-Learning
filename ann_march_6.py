@@ -151,7 +151,7 @@ import dataset_divider
 x_data,y_data=dataset_divider.divide_with_label(5,X_train_full,y_train)
 
 
-client1_train, client1_test=dataset_divider.get_data(x_data,y_data,4)
+client1_train, client1_test=dataset_divider.get_data(x_data,y_data,4, 'non-iid')
         
     
     
