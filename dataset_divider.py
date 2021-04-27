@@ -85,7 +85,5 @@ def get_non_iid_data(data_x,data_y,clients):
     
     return x_data,y_data
     
-for index1 in range(1,5):
-    print(index1)
 
 
