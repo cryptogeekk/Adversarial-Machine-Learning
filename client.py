@@ -17,9 +17,7 @@ class Client:
         self.weights=weights
         
         
-    def train(self):
-        self.dataset_x=self.dataset_x/255.0
-        
+    def train(self): 
         import numpy as np
         import pandas as pd
         import matplotlib as plt

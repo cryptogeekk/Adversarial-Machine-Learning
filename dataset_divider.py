@@ -74,16 +74,16 @@ def get_data(x_data,y_data,count,data_type):
     
         return train_data_1, test_data_1
     
-def get_non_iid_data(data_x,data_y,clients):
+def get_non_iid_data(x_data_temp,y_data_temp,clients):
+    clients=5
     x_data=[]
     y_data=[]
-    data_type='non-iid'
-    for index in range(clients):
-        datax,datay=get_data(data_x,data_y, index, data_type)
-        x_data.append(data_x)
-        y_data.append(datay)
+    for index in range(0,clients):
+        x_data_temp1,y_data_temp1=get_data(x_data_temp,y_data_temp,index,'non-iid')
+        x_data.append(x_data_temp1)
+        y_data.append(y_data_temp1)
     
-    return x_data,y_data
+    return x_data, y_data
     
 
 
